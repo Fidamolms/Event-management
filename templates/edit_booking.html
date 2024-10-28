@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h2>Edit Booking</h2>
+  <form method="POST">
+    {% csrf_token %}
+    <div>
+      <label for="event_name">Event Name:</label>
+      <input type="text" name="event_name" value="{{ booking.event_name }}" required>
+    </div>
+    <div>
+      <label for="event_date">Event Date:</label>
+      <input type="date" name="event_date" value="{{ booking.event_date }}" required>
+    </div>
+    <div>
+      <label for="location">Location:</label>
+      <input type="text" name="location" value="{{ booking.location }}" required>
+    </div>
+    <div>
+      <label for="description">Description:</label>
+      <textarea name="description" required>{{ booking.description }}</textarea>
+    </div>
+    <button type="submit">Update Booking</button>
+  </form>
+  <a href="{% url 'admin_dashboard' %}">Cancel</a>
+{% endblock %}

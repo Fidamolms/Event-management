@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center">Admin Dashboard</h2>
+    <h4>Bookings</h4>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Event Name</th>
+                <th>Event Date</th>
+                <th>Location</th>
+                <th>Description</th>
+                <th>Actions</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for booking in bookings %}
+            <tr>
+                <td>{{ booking.event_name }}</td>
+                <td>{{ booking.event_date }}</td>
+                <td>{{ booking.location }}</td>
+                <td>{{ booking.description }}</td>
+                <td>
+                    <a href="{% url 'edit_booking' booking.id %}" class="btn btn-warning">Edit</a>
+                    <a href="{% url 'delete_booking' booking.id %}" class="btn btn-danger">Delete</a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+{% endblock %}

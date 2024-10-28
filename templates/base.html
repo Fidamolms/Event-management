@@ -1,0 +1,122 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Your Title{% endblock %}</title>
+
+    <!-- CDNs -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Custom Styles -->
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+
+    <style>
+        /* Custom styling for form borders (login, register) */
+        .form-border {
+            border: 1px solid #d3d3d3; /* Light gray border */
+            padding: 20px;
+            border-radius: 5px;
+            background-color: #f9f9f9; /* Light background for contrast */
+            box-shadow: 0 0 10px rgba(0,0,0,0.1); /* Optional: Soft shadow for a floating effect */
+            margin: 0 auto; /* Center the form */
+            max-width: 500px; /* Max width for the form */
+        }
+
+        .form-border label {
+            font-weight: bold;
+        }
+
+        .form-border input[type="submit"] {
+            width: 100%; /* Full-width submit button */
+        }
+
+        /* Optional: Style the input fields */
+        .form-border input[type="text"], .form-border input[type="password"], .form-border input[type="email"] {
+            border: 1px solid #ccc; /* Input border styling */
+            padding: 10px;
+            width: 100%; /* Full-width inputs */
+            margin-bottom: 15px; /* Add some space between fields */
+            border-radius: 5px;
+        }
+
+        /* Optional: Style the submit button */
+        .form-border input[type="submit"] {
+            background-color: #002aff; /* Primary color */
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        /* On hover, change button color */
+        .form-border input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+
+        /* Navbar Custom Styling */
+        .nav li a {
+            color: rgb(23, 137, 244);
+            font-size: 20px;
+        }
+        .navbar-brand {
+            color: rgb(23, 167, 244);
+            font-size: 25px;
+            font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+        }
+
+        /* Footer Styling */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: #333;
+            color: #fff;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Body and Navbar background */
+        body {
+            background-color: #e0f7fa;
+            font-family: 'Arial', sans-serif;
+        }
+    </style>
+</head>
+<body class="{% block body_class %}{% endblock %}">
+    <!-- Navbar start -->
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="#">Events</a>
+            </div>
+            <ul class="nav navbar-nav">
+                <li class="{% if request.path == '/' %}active{% endif %}"><a href="{% url 'index' %}">Home</a></li>
+                <li class="{% if request.path == '/about/' %}active{% endif %}"><a href="{% url 'about' %}">About</a></li>
+                <li class="{% if request.path == '/contact/' %}active{% endif %}"><a href="{% url 'contact' %}">Contact</a></li>
+                
+                {% if user.is_authenticated %}
+                <li class="{% if request.path == '/events/' %}active{% endif %}"><a href="{% url 'events' %}">Events</a></li>
+                    <li class="{% if request.path == '/booking/' %}active{% endif %}"><a href="{% url 'booking' %}">Booking</a></li>
+                    <li><a href="{% url 'logout' %}"><span class="glyphicon glyphicon-log-out"></span> Log Out</a></li>
+                    <li><a href="#"><strong>{{ user.username }}</strong></a></li>
+                {% else %}
+                    <li><a href="{% url 'login' %}">Login</a></li>
+                    <li><a href="{% url 'register' %}">Register</a></li>
+                {% endif %}
+                
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Content block -->
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>

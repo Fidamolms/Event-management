@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h2 class="text-center">Register</h2>
+    <form method="post" class="form-border">
+        {% csrf_token %}
+        {{ form.non_field_errors }}
+
+        <!-- Username Input -->
+        <div class="form-group">
+            <label for="username">Username:</label>
+            {{ form.username }}
+        </div>
+
+        <!-- Password Input -->
+        <div class="form-group">
+            <label for="password1">Password:</label>
+            {{ form.password1 }}
+        </div>
+
+        <!-- Confirm Password Input -->
+        <div class="form-group">
+            <label for="password2">Confirm Password:</label>
+            {{ form.password2 }}
+        </div>
+
+        <!-- Phone Input (Optional) -->
+        {% if form.phone %}
+        <div class="form-group">
+            <label for="phone">Phone:</label>
+            {{ form.phone }}
+        </div>
+        {% endif %}
+
+        <!-- Submit Button -->
+        <div class="form-group">
+            <input type="submit" value="Register" class="btn btn-primary">
+        </div>
+    </form>
+</div>
+{% endblock %}

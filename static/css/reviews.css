@@ -1,0 +1,48 @@
+/* reviews.css */
+
+/* Review Section Styles */
+.review-section {
+    margin-top: 40px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+}
+
+.review-section h3 {
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.review-form {
+    margin-bottom: 20px;
+}
+
+.review-form button {
+    margin-top: 10px;
+}
+
+/* Review List Styles */
+.review-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.review-list li {
+    padding: 15px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.review-list li strong {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.review-list li small {
+    color: #888;
+    font-size: 0.9em;
+}

@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+
+{% block title %}Contact Us{% endblock %}
+
+{% block body_class %}contact-page{% endblock %}
+
+{% block content %}
+<section class="contact-hero">
+    <div class="hero-content text-center">
+        <h1>Contact Us</h1>
+        <p>We are here to help! Get in touch with us for inquiries or job opportunities.</p>
+    </div>
+</section>
+
+<div class="container contact-container">
+    <!-- Contact Info Cards -->
+    <div class="contact-info">
+        <div class="info-item card">
+            <h2>For Enquiries:</h2>
+            <p><strong>Phone:</strong> <a href="tel:+1234567890">+1 234 567 890</a></p>
+            <p><strong>Email:</strong> <a href="mailto:enquiries@company.com">enquiries@company.com</a></p>
+        </div>
+
+        <div class="info-item card">
+            <h2>For Job Opportunities:</h2>
+            <p><strong>Phone:</strong> <a href="tel:+0987654321">+0 987 654 321</a></p>
+            <p><strong>Email:</strong> <a href="mailto:careers@company.com">careers@company.com</a></p>
+        </div>
+    </div>
+
+
+{% endblock %}

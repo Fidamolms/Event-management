@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Event Booking{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="text-center mb-4">Book Your Event</h2>
+
+    {% if success %}
+        <div class="alert alert-success" role="alert">
+            Your booking was successful.
+            we will serve you the best..!
+        </div>
+    {% endif %}
+    
+    <div class="row">
+        <div class="col-md-12">
+            <form method="POST" action="{% url 'booking' %}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label for="eventName">Event Name</label>
+                    <select class="form-control" id="eventName" name="event_name" required>
+                        <option>Select an event</option>
+                        <option>Wedding</option>
+                        <option>Reception</option>
+                        <option>Engagement</option>
+                        <option>Birthday</option>
+                        <option>Bachelors</option>
+                        <option>Private</option>
+                        <option>Sangeeth</option>
+                        <option>Haldi</option>
+                        <option>Groom & Bride to be</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label for="eventDate">Select Date</label>
+                    <input type="date" class="form-control" id="eventDate" name="event_date" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="location">Location</label>
+                    <input type="text" class="form-control" id="location" name="location" placeholder="Enter location" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea class="form-control" id="description" name="description" rows="3" placeholder="Add a brief description of your event" required></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Submit Booking</button>
+            </form>
+        </div>
+    </div>
+
+    
+                
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- Include jQuery and Bootstrap JS -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+{% endblock %}

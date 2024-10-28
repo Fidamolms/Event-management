@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %}About Us{% endblock %}
+
+{% block body_class %}about-page{% endblock %}
+
+{% block content %}
+<section class="hero">
+    <div class="hero-content text-center">
+        <h1>Welcome to Our Company</h1>
+        <p>Providing exceptional service with a smile for over a decade.</p>
+    </div>
+</section>
+
+<div class="container">
+    <div class="stats text-center">
+        <div class="stat card">
+            <h2>20,000+</h2>
+            <p>Happy Customers</p>
+        </div>
+        <div class="stat card">
+            <h2>10 Years</h2>
+            <p>Experience</p>
+        </div>
+        <div class="stat card">
+            <h2>Kochi, India</h2>
+            <p>Our Proud Location</p>
+        </div>
+    </div>
+
+    <div class="about-content">
+        <div class="card mission-card">
+            <h2>Our Mission</h2>
+            <p>Our mission is to provide top-notch services and create unforgettable experiences for our clients. We are committed to excellence and customer satisfaction.</p>
+        </div>
+
+        <div class="card team-card">
+            <h2>Our Team</h2>
+            <p>Our team is made up of dedicated professionals who are passionate about what they do. Together, we strive to make a difference and deliver outstanding results.</p>
+        </div>
+    </div>
+
+    <div class="team-image-wrapper">
+        <img src="{% static 'images/team.jpg' %}" alt="Our Team" class="team-image card">
+    </div>
+</div>
+
+<footer>
+    <p>&copy; 2024 Your Company. All rights reserved.</p>
+</footer>
+{% endblock %}
